@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
 
@@ -11,14 +12,30 @@
     <properties>
         <!-- <akka.version>2.3.11</akka.version> -->
         <!-- 		<akka.version>2.3.4</akka.version> -->
-        <akka.version>2.4.7</akka.version>
+        <!--<akka.version>2.4.7</akka.version>-->
+        <akka.version>2.4-SNAPSHOT</akka.version>
     </properties>
 
     <!--<scm>-->
-        <!--<connection>scm:git:https://bitbucket.org/horzelam/${project.artifactId}.git</connection>-->
-        <!--<developerConnection>scm:git:https://bitbucket.org/horzelam/${project.artifactId}.git</developerConnection>-->
-        <!--<url>https://bitbucket.org/horzelam/${project.artifactId}.git</url>-->
+    <!--<connection>scm:git:https://bitbucket.org/horzelam/${project.artifactId}.git</connection>-->
+    <!--<developerConnection>scm:git:https://bitbucket.org/horzelam/${project.artifactId}.git</developerConnection>-->
+    <!--<url>https://bitbucket.org/horzelam/${project.artifactId}.git</url>-->
     <!--</scm>-->
+
+    <repositories>
+        <repository>
+            <id>typesafe</id>
+            <name>Typesafe Repository</name>
+            <url>http://repo.typesafe.com/typesafe/releases/</url>
+        </repository>
+        <repository>
+            <id>akka-snapshots</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>http://repo.akka.io/snapshots/</url>
+        </repository>
+    </repositories>
 
     <dependencies>
 
@@ -29,8 +46,6 @@
 
             <scope>test</scope>
         </dependency>
-
-
 
 
         <dependency>
@@ -46,18 +61,30 @@
             <version>${akka.version}</version>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<groupId>com.typesafe.akka</groupId>-->
+            <!--<artifactId>akka-actor</artifactId>-->
+            <!--<version>2.0.1</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-slf4j_2.11</artifactId>
-            <version>${akka.version}</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>com.typesafe.akka</groupId>-->
+        <!--<artifactId>akka-actor_2.11</artifactId>-->
+        <!--<version>${akka.version}</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>com.typesafe.akka</groupId>
-            <artifactId>akka-contrib_2.11</artifactId>
-            <version>${akka.version}</version>
-        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>com.typesafe.akka</groupId>-->
+        <!--<artifactId>akka-slf4j_2.11</artifactId>-->
+        <!--<version>${akka.version}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+        <!--<groupId>com.typesafe.akka</groupId>-->
+        <!--<artifactId>akka-contrib_2.11</artifactId>-->
+        <!--<version>${akka.version}</version>-->
+        <!--</dependency>-->
 
         <!-- <dependency> -->
         <!-- <groupId>org.scala-lang</groupId> -->
@@ -65,7 +92,6 @@
         <!-- <version>${scala.version}</version> -->
         <!-- <scala.version>2.10.3</scala.version> -->
         <!-- </dependency> -->
-
 
 
         <dependency>
@@ -87,7 +113,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.12</version>
         </dependency>
-
 
 
     </dependencies>
