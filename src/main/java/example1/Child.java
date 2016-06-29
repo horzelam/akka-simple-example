@@ -1,9 +1,8 @@
+package example1;
+
 import akka.actor.UntypedActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
-import org.apache.commons.lang3.RandomUtils;
-
-import java.util.concurrent.TimeUnit;
 
 public class Child extends UntypedActor {
     private final LoggingAdapter logger = Logging.getLogger(getContext().system(), this);
@@ -15,7 +14,7 @@ public class Child extends UntypedActor {
 
         if (msg instanceof Master.JobMessage) {
             Master.JobMessage jobMsg = (Master.JobMessage) msg;
-            logger.info("Child got job with : " + jobMsg.getWord());
+            logger.info("example1.Child got job with : " + jobMsg.getWord());
 
             // execute the job - concatenate the words
             if (stringBuffer.length() > 0) {
@@ -25,7 +24,7 @@ public class Child extends UntypedActor {
 
 
         } else if (msg instanceof Master.FinishAll) {
-            logger.info("Child finishing its work with result: " + stringBuffer);
+            logger.info("example1.Child finishing its work with result: " + stringBuffer);
             sender().tell(new Master.JobDoneMsg(stringBuffer), self());
             // we could stop current child here as well
             // getContext().stop(self());

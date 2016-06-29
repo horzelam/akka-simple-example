@@ -1,3 +1,5 @@
+package example1;
+
 import akka.actor.AbstractActorWithStash;
 import akka.actor.ActorRef;
 import akka.actor.Props;

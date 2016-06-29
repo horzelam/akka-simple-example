@@ -1,10 +1,10 @@
+package example2;
+
 import akka.actor.*;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
-import akka.japi.pf.FI;
 import akka.japi.pf.ReceiveBuilder;
 import akka.util.Timeout;
-import scala.Option;
 import scala.PartialFunction;
 import scala.concurrent.Await;
 import scala.concurrent.Future;
@@ -12,7 +12,6 @@ import scala.concurrent.duration.Duration;
 import scala.concurrent.duration.FiniteDuration;
 import scala.runtime.BoxedUnit;
 
-import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 import static akka.pattern.Patterns.ask;
@@ -44,7 +43,7 @@ public class ActorWhichSchedulesMsgToSelf extends AbstractActor {
         Future<Object> future = ask(tickActor, new Finish(), timeout);
         Object result = Await.result(future, timeout.duration());
 
-        System.out.println("[App] Final result : " + result);
+        System.out.println("[example1.App] Final result : " + result);
 
         system.shutdown();
     }
@@ -87,7 +86,7 @@ public class ActorWhichSchedulesMsgToSelf extends AbstractActor {
 
         return ReceiveBuilder
                 .match(Terminated.class, msg -> {
-                    logger.info("Child finished - we have " + --childAmount + " children.");
+                    logger.info("example1.Child finished - we have " + --childAmount + " children.");
                     if (childAmount == 0) {
                         parent.tell("finished all " + allChildCreatedAmount +" children", self());
                         // getContext().unbecome();

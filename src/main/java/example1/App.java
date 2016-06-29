@@ -1,10 +1,11 @@
+package example1;
+
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.dispatch.Futures;
 import akka.japi.JavaPartialFunction;
 import akka.util.Timeout;
-import scala.concurrent.Await;
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
 import scala.concurrent.duration.FiniteDuration;
@@ -12,7 +13,6 @@ import scala.util.Try;
 
 import static akka.pattern.Patterns.ask;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -87,6 +87,6 @@ public class App {
     }
 
     private static void sendLotOfMessages(ActorRef master) {
-        //   master.tell(new Master.JobMessage(100, "world"), null);
+        //   master.tell(new example1.Master.JobMessage(100, "world"), null);
     }
 }

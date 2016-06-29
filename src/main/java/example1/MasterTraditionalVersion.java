@@ -1,3 +1,5 @@
+package example1;
+
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.actor.Terminated;
@@ -8,9 +10,6 @@ import akka.event.LoggingAdapter;
 import akka.japi.Procedure;
 import scala.Option;
 import scala.collection.Iterator;
-import scala.concurrent.duration.FiniteDuration;
-
-import java.util.concurrent.TimeUnit;
 
 
 public class MasterTraditionalVersion extends UntypedActorWithStash {
@@ -25,7 +24,7 @@ public class MasterTraditionalVersion extends UntypedActorWithStash {
     public void preStart() {
         // Here we can also create child actor:
         //      // create the greeter actor
-        //      final ActorRef child = getContext().actorOf(Props.create(Child.class), "child");
+        //      final ActorRef child = getContext().actorOf(Props.create(example1.Child.class), "child");
         //      // tell it to perform the greeting
         //      greeter.tell("msgFromParent", getSelf());
     }
