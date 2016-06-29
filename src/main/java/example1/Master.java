@@ -23,6 +23,7 @@ public class Master extends AbstractActorWithStash {
         receive(ReceiveBuilder
                 .match(JobMessage.class, msg -> handleJobMsg(msg))
                 .match(FinishAll.class, msg -> handleFinishAllMsg(msg))
+                .matchAny(msg-> System.out.println("any other msg in master:" + msg))
                 .build());
     }
 
