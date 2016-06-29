@@ -1,9 +1,6 @@
 package example1;
 
-import akka.actor.AbstractActorWithStash;
-import akka.actor.ActorRef;
-import akka.actor.Props;
-import akka.actor.Terminated;
+import akka.actor.*;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import akka.japi.pf.ReceiveBuilder;
@@ -30,13 +27,10 @@ public class Master extends AbstractActorWithStash {
     }
 
     private void handleFinishAllMsg(FinishAll msg) {
-        //ActorSelection childrenSelection = context().actorSelection("/user/master/child_*");
-        Iterator<ActorRef> iterator = getContext().children().iterator();
-        while (iterator.hasNext()) {
-            iterator.next().tell(msg, self());
-        }
+        ActorSelection childrenSelection = context().actorSelection("/user/master/child_*");
+        childrenSelection.tell(msg, self());
 
-        // State change example:
+         // State change example:
         getContext().become(awaitingResultsFunction());
         this.senderAwaitingResult = sender();
     }
