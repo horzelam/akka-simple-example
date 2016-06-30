@@ -43,7 +43,7 @@ public class ActorWhichSchedulesMsgToSelf extends AbstractActor {
         Future<Object> future = ask(tickActor, new Finish(), timeout);
         Object result = Await.result(future, timeout.duration());
 
-        System.out.println("[example1.App] Final result : " + result);
+        System.out.println("Final result : " + result);
 
         system.shutdown();
     }
@@ -54,7 +54,7 @@ public class ActorWhichSchedulesMsgToSelf extends AbstractActor {
         getContext().system().scheduler().schedule(
                 new FiniteDuration(1, TimeUnit.MILLISECONDS),
                 new FiniteDuration(1, TimeUnit.MILLISECONDS),
-                () -> self().tell(new Tick(), self()),
+                        (Runnable) () -> self().tell(new Tick(), self()),
                 getContext().system().dispatcher());
     }
 
