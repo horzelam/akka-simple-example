@@ -5,6 +5,9 @@ Simple examples
 # Runnig Visualizer (akka-visualmailbox) for this project
 
 ## How to install akka-visualmailbox
+Instala sbt - see http://www.scala-sbt.org/download.html
+
+
 Install npm + bower
 ```
 // install npm 
