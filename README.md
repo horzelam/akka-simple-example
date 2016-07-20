@@ -77,5 +77,5 @@ npm --version
 
 
 sbt --version
-sbt launcher version 0.13.7
+sbt launcher version 0.13.11 (??)
 ```
